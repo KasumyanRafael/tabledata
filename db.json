@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Agnetha",
+      "login": "SweetMe"
+    },
+    {
+      "id": 2,
+      "name": "Bjorn",
+      "login": "SwedishMan"
+    },
+    {
+      "id": 3,
+      "name": "Svetlana",
+      "login": "MaKaR2004"
+    },
+    {
+      "id": 4,
+      "name": "Arsen",
+      "login": "IronMan2005"
+    },
+    {
+      "id": 5,
+      "name": "Misha",
+      "login": "discoboy"
+    },
+    {
+      "id": 6,
+      "name": "Vladimir",
+      "login": "chokoPie"
+    }
+  ]
+}

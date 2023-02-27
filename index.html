@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <input type="text" id="name" placeholder="Name">
+        <input type="text" id="login" placeholder="Login">
+        <button class="createProfile">Добавить</button>
+    </form>
+    <table id="users">
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>name</th>
+                <th>login</th>
+                <th>operations</th> 
+            </tr>
+        </thead>
+        <tbody>
+            
+        </tbody>
+    </table>
+
+    <script>
+        let url = "http://localhost:3000/users";
+        let button=document.querySelector(".createProfile");
+        var call=document.getElementById("name").value;
+        var log=document.getElementById("login").value;
+        var deletors=document.querySelectorAll('.delete');
+        async function getUsers(url) {
+            const response = await fetch(url);
+            const json = await response.json();
+            return json;
+        }
+        const usersTable = document.querySelector("#users tbody");
+        getUsers(url).then( (data)=> {
+            data.forEach(user => {
+                let userRow = '<td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.login+'</td>';
+                let buttons = '<td><button class="edit">редактировать</button><button class="delete">удалить</button></td>';
+                usersTable.innerHTML += '<tr>' + userRow + buttons + '</tr>';
+                console.log(user.name);
+            });
+            }
+        );
+        const postData=async(url,data)=>{
+            const response=await fetch(url,{
+                method:"POST",
+                body: JSON.stringify(data)
+            });
+            return response.json();
+        }
+        const deleteData=async(url,data)=>{
+            const response=await fetch(url,{
+                method:"DELETE",
+                body: JSON.stringify(data)
+            });
+            return response.json();
+        }
+        button.addEventListener('click',function(){
+            postData(url,{id:7,name:call.value,login:log.value}).then((data)=>{
+                data.forEach(user => {
+                let userRow = '<td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.login+'</td>';
+                let buttons = '<td><button class="edit">редактировать</button><button class="delete">удалить</button></td>';
+                usersTable.innerHTML += '<tr>' + userRow + buttons + '</tr>';
+                console.log(user.name);
+            });
+            })
+        })
+        deletors.forEach(function(del){
+            del.addEventListener('click',function(){
+                deleteData(url,{id:7,name:call,login:log}).then((data)=>{   ///здесь надо работать над данными
+                data.forEach(user => {
+                let userRow = '<td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.login+'</td>';
+                let buttons = '<td><button class="edit">редактировать</button><button class="delete">удалить</button></td>';
+                usersTable.innerHTML += '<tr>' + userRow + buttons + '</tr>';
+                console.log(user.name);
+            });
+            })
+            })
+        })
+    </script>
+</body>
+</html>
