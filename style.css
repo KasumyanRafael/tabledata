@@ -1,0 +1,9 @@
+.frm{
+    background-color: aquamarine;
+    border-radius: 4%;
+}
+.captcha{
+    background-color: rgb(243, 195, 107);
+    height:200px;
+    border-radius: 6%;
+}

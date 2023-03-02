@@ -47,7 +47,7 @@ getUsers(url)
 const addButton = document.querySelector(".addUser")
 addButton.addEventListener("click", (evt) => {
     evt.preventDefault();
-    const name = document.querySelector("#userLogin").value
+    const name = document.querySelector("#userName").value
     const login = document.querySelector("#userLogin").value
     const pass=document.querySelector("#userPassword").value
 
