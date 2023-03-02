@@ -5,86 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Управление пользователями</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
-<body>
-    <form>
-        <input type="text" id="name" placeholder="Name">
-        <input type="text" id="login" placeholder="Login">
-        <button class="createProfile">Добавить</button>
-    </form>
-    <table id="users">
-        <thead>
-            <tr>
-                <th>№</th>
-                <th>name</th>
-                <th>login</th>
-                <th>operations</th> 
-            </tr>
-        </thead>
-        <tbody>
-            
-        </tbody>
-    </table>
-
-    <script>
-        let url = "http://localhost:3000/users";
-        let button=document.querySelector(".createProfile");
-        var call=document.getElementById("name").value;
-        var log=document.getElementById("login").value;
-        var deletors=document.querySelectorAll('.delete');
-        async function getUsers(url) {
-            const response = await fetch(url);
-            const json = await response.json();
-            return json;
-        }
-        const usersTable = document.querySelector("#users tbody");
-        getUsers(url).then( (data)=> {
-            data.forEach(user => {
-                let userRow = '<td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.login+'</td>';
-                let buttons = '<td><button class="edit">редактировать</button><button class="delete">удалить</button></td>';
-                usersTable.innerHTML += '<tr>' + userRow + buttons + '</tr>';
-                console.log(user.name);
-            });
-            }
-        );
-        const postData=async(url,data)=>{
-            const response=await fetch(url,{
-                method:"POST",
-                body: JSON.stringify(data)
-            });
-            return response.json();
-        }
-        const deleteData=async(url,data)=>{
-            const response=await fetch(url,{
-                method:"DELETE",
-                body: JSON.stringify(data)
-            });
-            return response.json();
-        }
-        button.addEventListener('click',function(){
-            postData(url,{id:7,name:call.value,login:log.value}).then((data)=>{
-                data.forEach(user => {
-                let userRow = '<td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.login+'</td>';
-                let buttons = '<td><button class="edit">редактировать</button><button class="delete">удалить</button></td>';
-                usersTable.innerHTML += '<tr>' + userRow + buttons + '</tr>';
-                console.log(user.name);
-            });
-            })
-        })
-        deletors.forEach(function(del){
-            del.addEventListener('click',function(){
-                deleteData(url,{id:7,name:call,login:log}).then((data)=>{   ///здесь надо работать над данными
-                data.forEach(user => {
-                let userRow = '<td>'+user.id+'</td><td>'+user.name+'</td><td>'+user.login+'</td>';
-                let buttons = '<td><button class="edit">редактировать</button><button class="delete">удалить</button></td>';
-                usersTable.innerHTML += '<tr>' + userRow + buttons + '</tr>';
-                console.log(user.name);
-            });
-            })
-            })
-        })
-    </script>
+<body class="d-flex justify-content-center">
+    <main class="container m-3 w-50">
+        <div class="row mb-3">
+            <div class="col-4">
+                <input type="text" class="form-control" id="userName">
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" id="userLogin">
+            </div>
+            <div class="col-4">
+                <button class="btn btn-primary addUser">Добавить</button>
+            </div>
+        </div>
+        <table id="users" class="table">
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>name</th>
+                    <th>login</th>
+                    <th>operations</th> 
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
 </body>
+
 </html>
