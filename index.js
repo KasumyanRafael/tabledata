@@ -9,6 +9,7 @@ getUsers(url)
         <td class="id">${user.id}</td>
         <td>${user.name}</td>
         <td>${user.login}</td>
+        <td>${user.password}</td>
         <td>
             <button class="btn btn-success editUser">редактировать</button>
             <button class="btn btn-danger deleteUser">удалить</button>
@@ -36,7 +37,8 @@ getUsers(url)
                 let urlUpdate = url + "/" + id
                 let name = document.querySelector("#userName").value
                 let login = document.querySelector("#userLogin").value
-                updateUser(urlUpdate, { name: name, login: login })
+                let password=document.querySelector("#userPassword").value
+                updateUser(urlUpdate, { name: name, login: login,password:password })
                     .then(() => location.reload())
             })
         })
@@ -47,8 +49,9 @@ addButton.addEventListener("click", (evt) => {
     evt.preventDefault();
     const name = document.querySelector("#userLogin").value
     const login = document.querySelector("#userLogin").value
+    const pass=document.querySelector("#userPassword").value
 
-    addUser(url, { name: name, login: login, }).then(() => location.reload());
+    addUser(url, { name: name, login: login,password:pass, }).then(() => location.reload());
 
 })
 

@@ -3,32 +3,38 @@
     {
       "id": 1,
       "name": "Agnetha",
-      "login": "SweetMe"
+      "login": "SweetMe",
+      "password": "Aa123456"
     },
     {
       "id": 2,
       "name": "Bjorn",
-      "login": "SwedishMan"
+      "login": "SwedishMan",
+      "password": "gfhfth65745"
     },
     {
       "id": 3,
       "name": "Svetlana",
-      "login": "MaKaR2004"
+      "login": "MaKaR2004",
+      "password": "Aa76456"
     },
     {
       "id": 4,
       "name": "Arsen",
-      "login": "IronMan2005"
+      "login": "IronMan2005",
+      "password": "lioulhj"
     },
     {
       "id": 5,
       "name": "Misha",
-      "login": "discoboy"
+      "login": "discoboy",
+      "password": "try769"
     },
     {
       "id": 6,
       "name": "Vladimir",
-      "login": "chokoPie"
+      "login": "chokoPie",
+      "password": "897i76"
     }
   ]
 }
