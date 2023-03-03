@@ -46,10 +46,24 @@
                 <input type="checkbox"id="final">
                 <label for="final">4</label>
                 <br>
-                <button class="btn btn-primary">Проверить результат</button>
+                <button class="btn btn-primary" id="captcha">Проверить результат</button>
             </div>
-            <button type="submit" class="btn btn-success" disabled="true">Авторизация</button>
+            <button type="submit" class="btn btn-success" disabled="true" id="sumbit">Авторизация</button>
         </form>
+        <script>
+            let resBtn=document.getElementById("submit");
+            let capBtn=document.getElementById("captcha");
+            let settlement=['Владикавказ','Чикола','Моздок','Нар','Беслан','Эльхотово','Алагир','Заманкул','Ардон','Майрамадаг','Дигора','Хумалаг']
+            function getRandomInt(min, max) {
+                min = Math.ceil(min);
+                max = Math.floor(max);
+                return Math.floor(Math.random() * (max - min)) + min; //Максимум не включается, минимум включается
+            }
+            capBtn.addEventListener('click',function(){
+                let cityQuantity= getRandomInt(1,4); //вернёт 1 или 2 или 3
+                
+            })
+        </script>
     </div>
     <main class="container m-3 w-50">
         <div class="row mb-3">
