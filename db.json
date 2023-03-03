@@ -35,6 +35,12 @@
       "name": "Vladimir",
       "login": "chokoPie",
       "password": "897i76"
+    },
+    {
+      "name": "Benny",
+      "login": "Anderson",
+      "password": "ghrtthert",
+      "id": 7
     }
   ]
 }
