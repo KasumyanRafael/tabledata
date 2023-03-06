@@ -41,6 +41,12 @@
       "login": "Anderson",
       "password": "ghrtthert",
       "id": 7
+    },
+    {
+      "name": "Freddy",
+      "login": "Mercury",
+      "password": "queen2004",
+      "id": 8
     }
   ]
 }
